@@ -70,11 +70,12 @@ bool Meeting::isParticipator(const string &t_userName) const{
   return false;
 }
 void Meeting::addParticipator(const string &t_participator){
-  m_participators.push(t_participator);
+  m_participators.push_back(t_participator);
 }
 void Meeting::removeParticipator(const string &t_participator){
   for (size_t i = 0; i < m_participators.size(); i++) {
-    if (m_participators[i]==t_userName) {
+    if (m_participators[i]==t_participator) {
       m_participators.erase(m_participators.begin()+i);
     }
+   }
 }

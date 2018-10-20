@@ -6,9 +6,11 @@ BUILD_DIR	:=	build
 BIN_DIR		:=	bin
 INCLUDE		:=	-I./$(INC_DIR)
 
-$(BUILD_DIR)/%.o:	$(SRC_DIR)/%.cpp
+$(BUILD_DIR)/User.o:	$(SRC_DIR)/User.cpp
 	@mkdir -p $(BUILD_DIR)
 	$(CC) $(FLAGS) $(INCLUDE) -c -o $@ $<
+	$(CC) $(FLAGS) $(INCLUDE) -c -o build/Meeting.o src/Meeting.cpp
+	$(CC) $(FLAGS) $(INCLUDE) -c -o build/Date.o src/Date.cpp
 
 clean:
 	@rm -rf $(BUILD_DIR)
