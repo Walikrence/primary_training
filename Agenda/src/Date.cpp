@@ -1,4 +1,6 @@
 #include "Date.hpp"
+#include<sstream>
+#include<iostream>
 using namespace std;
 
 Date::Date(){
@@ -146,4 +148,54 @@ string Date::dateToString(Date t_date){
     return s;
   }
   //如果格式正确则转换成字符串
+
+  int year  	=	m_year;
+	int month  	=	m_month;
+	int day	   	= m_day;
+	int	hour	  =	m_hour;
+	int	minute	=	m_minute;
+	string s("asdasdasdasdasda");
+	//year
+	int s3=year%10;
+	year/=10;
+	int s2=year%10;
+	year/=10;
+	int s1=year%10;
+	year/=10;
+	int s0=year%10;
+	//month
+	int s6=month%10;
+	month/=10;
+	int s5=month%10;
+	//day
+	int s9=day%10;
+	s9/=10;
+	int s8=day%10;
+	//hour
+	int s12=hour%10;
+	hour/=10;
+	int s11=hour%10;
+	//minute
+	int s15=minute%10;
+	minute/=10;
+	int s14=minute%10;
+
+	s[0]=s0+48;
+	s[1]=s1+48;
+	s[2]=s2+48;
+	s[3]=s3+48;
+	s[4]='-';
+	s[5]=s5+48;
+	s[6]=s6+48;
+	s[7]='-';
+	s[8]=s8+48;
+	s[9]=s9+48;
+	s[10]='/';
+	s[11]=s11+48;
+	s[12]=s12+48;
+	s[13]=':';
+	s[14]=s14+48;
+	s[15]=s15+48;
+
+  return s;
 }
