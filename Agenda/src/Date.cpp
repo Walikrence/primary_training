@@ -1,6 +1,7 @@
 #include "Date.hpp"
 #include<sstream>
 #include<iostream>
+#include<string>
 using namespace std;
 
 Date::Date(){
@@ -198,4 +199,105 @@ string Date::dateToString(Date t_date){
 	s[15]=s15+48;
 
   return s;
+}
+
+Date & Date::operator=(const Date &t_date){
+  m_year    = t_date.m_year;
+  m_month   = t_date.m_month;
+  m_day     = t_date.m_day;
+  m_hour    = t_date.m_hour;
+  m_minute  = t_date.m_minute;
+  return *this;
+}
+
+bool  Date::operator==(const Date &t_date) const{
+  if (m_year!=t_date.m_year) {
+    return false;
+  }
+  else  if (m_month!=t_date.m_month) {
+    return false;
+  }
+  else if (m_day!=t_date.m_day) {
+    return false;
+  }
+  else if (m_hour!=t_date.m_hour) {
+    return false;
+  }
+  else if (m_minute!=t_date.m_minute) {
+    return false;
+  }
+  else
+    return true;
+}
+
+bool Date::operator>(const Date &t_date) const{
+  if (m_year!=t_date.m_year) {
+    return m_year>t_date.m_year;
+  }
+  else if (m_month!=t_date.m_month) {
+    return m_month>t_date.m_month;
+  }
+  else if (m_day!=t_date.m_day) {
+    return m_day>t_date.m_day;
+  }
+  else if (m_hour!=t_date.m_hour) {
+    return m_hour>t_date.m_hour;
+  }
+  else
+    return m_minute>t_date.m_minute;
+}
+
+bool Date::operator<(const Date &t_date) const{
+  if (m_year!=t_date.m_year) {
+    return m_year<t_date.m_year;
+  }
+  else if (m_month!=t_date.m_month) {
+    return m_month<t_date.m_month;
+  }
+  else if (m_day!=t_date.m_day) {
+    return m_day<t_date.m_day;
+  }
+  else if (m_hour!=t_date.m_hour) {
+    return m_hour<t_date.m_hour;
+  }
+  else
+    return m_minute<t_date.m_minute;
+}
+
+bool Date::operator>=(const Date &t_date) const{
+  if (m_year>=t_date.m_year) {
+    return true;
+  }
+  else if (m_month>=t_date.m_month) {
+    return true;
+  }
+  else if (m_day>=t_date.m_day) {
+    return true;
+  }
+  else if (m_hour>=t_date.m_hour) {
+    return true;
+  }
+  else if (m_minute>=t_date.m_minute) {
+    return true;
+  }
+  return false;
+}
+
+bool Date::operator<=(const Date &t_date) const{
+  if (m_year<=t_date.m_year) {
+    return true;
+  }
+  else if (m_month<=t_date.m_month) {
+    return true;
+  }
+  else if (m_day<=t_date.m_day) {
+    return true;
+  }
+  else if (m_hour<=t_date.m_hour) {
+    return true;
+  }
+  else if (m_minute<=t_date.m_minute) {
+    return true;
+  }
+  return false;
 }
