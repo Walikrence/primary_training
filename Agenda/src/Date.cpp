@@ -73,11 +73,11 @@ void Date::setMinute(const int t_minute) {
 }
 
 bool isValid(const Date t_date){
-  year    =   t_date.m_year;
-  month   =   t_date.m_month;
-  day     =   t_date.m_day;
-  hour    =   t_date.m_hour;
-  minute  =   t_date.m_minute;
+	int year  	=	t_date.getYear();
+	int month  	=	t_date.getMonth();
+	int day	   	= t_date.getDay();
+	int	hour	  =	t_date.getHour();
+	int	minute	=	t_date.getMinute();
   //年份检查
   if (  (year > 9999)  || (year < 1000) ) {
     return false;
@@ -132,29 +132,29 @@ bool isValid(const Date t_date){
 Date Date::stringToDate(const string t_dateString){
   Date m_date(t_dateString);
   if ( !isValid(m_date) ) {
-    m_date.m_year     =   0;
-    m_date.m_month    =   0;
-    m_date.m_day      =   0;
-    m_date.m_hour     =   0;
-    m_date.m_minute   =   0;
+    m_date.setYear(0);
+    m_date.setMonth(0);
+    m_date.setDay(0);
+    m_date.setHour(0);
+    m_date.setMinute(0);
   }
   return m_date;
 }
 
 string Date::dateToString(Date t_date){
-  string s;
+  string sd;
   //格式有效性检查
   if( !isValid(t_date) ){
-    s = "0000-00-00/00:00";
-    return s;
+    sd = "0000-00-00/00:00";
+    return sd;
   }
   //如果格式正确则转换成字符串
 
-  int year  	=	m_year;
-	int month  	=	m_month;
-	int day	   	= m_day;
-	int	hour	  =	m_hour;
-	int	minute	=	m_minute;
+  int year  	=	t_date.getYear();
+	int month  	=	t_date.getMonth();
+	int day	   	= t_date.getDay();
+	int	hour	  =	t_date.getHour();
+	int	minute	=	t_date.getMinute();
 	string s("asdasdasdasdasda");
 	//year
 	int s3=year%10;
