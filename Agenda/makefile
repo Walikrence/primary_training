@@ -1,12 +1,12 @@
-CC				:=	g++
-FLAGS			:=	-std=c++11	-w
+CC		:=	g++
+FLAGS		:=	-std=c++11	-w
 INC_DIR		:=	include
 SRC_DIR		:=	src
 BUILD_DIR	:=	build
 BIN_DIR		:=	bin
 INCLUDE		:=	-I./$(INC_DIR)
 
-$(BUILD_DIR)/%.o:	$(SRC_DIR)/%.cpp
+$(BUILD_DIR)/User.o:	$(SRC_DIR)/User.cpp
 	@mkdir -p $(BUILD_DIR)
 	$(CC) $(FLAGS) $(INCLUDE) -c -o $@ $<
 

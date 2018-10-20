@@ -17,6 +17,8 @@ Date::Date(int t_year, int t_month, int t_day, int t_hour, int t_minute){
   m_minute  =   t_minute;
 }
 
+
+
 Date::Date(string dateString){
   string s = dateString;
   m_year	  =	 (int)(s[0]-48)*1000+(int)(s[1]-48)*100+(int)(s[2]-48)*10+(int)(s[3]-48);

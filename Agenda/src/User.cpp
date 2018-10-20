@@ -1,7 +1,7 @@
 #include "User.hpp"
 using namespace std;
-User::User(std::string t_userName, std::string t_userPassword,
-     std::string t_userEmail, std::string t_userPhone);{
+User::User(string t_userName, string t_userPassword,
+     string t_userEmail, string t_userPhone){
        m_name      =  t_userName;
        m_password  =  t_userPassword;
        m_email     =  t_userEmail;
