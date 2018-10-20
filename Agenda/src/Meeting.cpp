@@ -2,8 +2,10 @@
 #include <algorithm>
 using namespace std;
 
-Meeting::Meeting(std::string t_sponsor, std::vector<std::string> t_participator, Date t_startTime,
-        Date t_endTime, std::string t_title){
+Meeting::Meeting(const std::string &t_sponsor,
+        const std::vector<std::string> &t_participator,
+        const Date &t_startTime, const Date &t_endTime,
+        const std::string &t_title){
           m_sponsor   = t_sponsor;
           m_participators   =    t_participator;
           m_startDate       =    t_startTime;
@@ -23,7 +25,7 @@ string  Meeting::getSponsor(void) const{
   return  m_sponsor;
 }
 
-void Meeting::setSponsor(string t_sponsor) {
+void Meeting::setSponsor(const string &t_sponsor) {
   m_sponsor   =   t_sponsor;
 }
 
@@ -31,7 +33,7 @@ vector<string> Meeting::getParticipator(void) const{
   return  m_participators;
 }
 
-void Meeting::setParticipator(const vector<string> t_participator) {
+void Meeting::setParticipator(const vector<string> &t_participator) {
   m_participators   =   t_participator;
 }
 
@@ -39,7 +41,7 @@ Date Meeting::getStartDate(void) const{
   return m_startDate;
 }
 
-void Meeting::setStartDate(const Date t_startTime) {
+void Meeting::setStartDate(const Date &t_startTime) {
   m_startDate   =   t_startTime;
 }
 
@@ -47,7 +49,7 @@ Date  Meeting::getEndDate() const{
   return m_endDate;
 }
 
-void Meeting::setEndDate(const Date t_endTime) {
+void Meeting::setEndDate(const Date &t_endTime) {
   m_endDate   =   t_endTime;
 }
 
@@ -55,15 +57,24 @@ string Meeting::getTitle(void) const{
   return    m_title;
 }
 
-void Meeting::setTitle(const string t_title) {
+void Meeting::setTitle(const string &t_title) {
   m_title   =     t_title;
 }
 
-bool Meeting::isParticipator(const string t_userName) const{
+bool Meeting::isParticipator(const string &t_userName) const{
   for (size_t i = 0; i < m_participators.size(); i++) {
     if (m_participators[i]==t_userName) {
       return true;
     }
   }
   return false;
+}
+void Meeting::addParticipator(const string &t_participator){
+  m_participators.push(t_participator);
+}
+void Meeting::removeParticipator(const string &t_participator){
+  for (size_t i = 0; i < m_participators.size(); i++) {
+    if (m_participators[i]==t_userName) {
+      m_participators.erase(m_participators.begin()+i);
+    }
 }
