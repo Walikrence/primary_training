@@ -22,7 +22,7 @@ Date::Date(int t_year, int t_month, int t_day, int t_hour, int t_minute){
 
 
 
-Date::Date(string dateString){
+Date::Date(const string &dateString){
   string s = dateString;
   m_year	  =	 (int)(s[0]-48)*1000+(int)(s[1]-48)*100+(int)(s[2]-48)*10+(int)(s[3]-48);
   m_month   =	 (int)(s[5]-48)*10+(int)(s[6]-48);
@@ -72,7 +72,7 @@ void Date::setMinute(const int t_minute) {
   m_minute   =   t_minute;
 }
 
-bool isValid(const Date t_date){
+bool isValid(const Date &t_date){
 	int year  	=	t_date.getYear();
 	int month  	=	t_date.getMonth();
 	int day	   	= t_date.getDay();
@@ -129,7 +129,7 @@ bool isValid(const Date t_date){
   return true;
 }
 
-Date Date::stringToDate(const string t_dateString){
+Date Date::stringToDate(const string &t_dateString){
   Date m_date(t_dateString);
   if ( !isValid(m_date) ) {
     m_date.setYear(0);
@@ -141,7 +141,7 @@ Date Date::stringToDate(const string t_dateString){
   return m_date;
 }
 
-string Date::dateToString(Date t_date){
+string Date::dateToString(const Date &t_date){
   string sd;
   //格式有效性检查
   if( !isValid(t_date) ){
