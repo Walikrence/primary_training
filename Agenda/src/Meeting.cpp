@@ -60,5 +60,10 @@ void Meeting::setTitle(const string t_title) {
 }
 
 bool Meeting::isParticipator(const string t_userName) const{
-  return  find(m_participators.begin(),m_participators.end(),t_userName);
+  for (size_t i = 0; i < m_participators.size(); i++) {
+    if (m_participators[i]==t_userName) {
+      return true;
+    }
+  }
+  return false;
 }

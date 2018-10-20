@@ -10,6 +10,10 @@ $(BUILD_DIR)/User.o:	$(SRC_DIR)/User.cpp
 	@mkdir -p $(BUILD_DIR)
 	$(CC) $(FLAGS) $(INCLUDE) -c -o $@ $<
 
+$(BUILD_DIR)/Meeting.o:	$(SRC_DIR)/Meeting.cpp
+	@mkdir -p $(BUILD_DIR)
+	$(CC) $(FLAGS) $(INCLUDE) -c -o $@ $<
+
 clean:
 	@rm -rf $(BUILD_DIR)
 	@rm -rf $(BIN_DIR)
